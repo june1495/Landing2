@@ -13,8 +13,8 @@ window.sr = ScrollReveal();
 
 sr.reveal('.content', {
     duration: 2000,
-    origin: 'left',
-    distance:'-100px'
+    origin: 'bottom',
+    distance:'-50px'
 });
 //LISTEN FOR A SUBMIT
 document.querySelector(".contact-form").addEventListener("submit", submitForm);
