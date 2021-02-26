@@ -16,3 +16,28 @@ sr.reveal('.content', {
     origin: 'left',
     distance:'-100px'
 });
+//LISTEN FOR A SUBMIT
+document.querySelector(".contact-form").addEventListener("submit", submitForm);
+function submitForm(e) {
+    e.preventDefault();
+
+ // GET INPUT VALUES
+let name = document.querySelector(".name").value;
+let email = document.querySelector(".email").value;
+let message = document.querySelector(".message").value;
+document.querySelector(".contact-form").reset();
+sendEmail(name, email, message);
+}
+
+// SEND EMAIL
+function sendEmail(name, email, message) {
+    Email.send({
+        Host : "smtp.gmail.com",
+        Username : "francomelgar4@gmail.com",
+        Password : "nivvhtjtnjbmhcfa",
+        To : 'rodrigo0830@gmail.com',
+        From : "francomelgar4@gmail.com",
+        Subject : `${name} sent you a message`,
+        Body : `Name: ${name} <br/> Email: ${email} <br/> Message: ${message}`,
+    }).then((message) => alert("mail sent successfully"))
+}
